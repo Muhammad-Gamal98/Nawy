@@ -26,7 +26,7 @@ export class ApartmentController {
 
   @Get()
   findAll(@Query() pagination?: PaginationParams) {
-    return this.apartmentService.findAll();
+    return this.apartmentService.findAll(pagination);
   }
 
   @Get(':id')

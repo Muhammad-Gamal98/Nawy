@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Apartment } from './entities/apartment.entity';
 import { Repository } from 'typeorm';
 import { CreateApartmentDto } from './dto/create-apartment.dto';
+import { PaginationParams } from './dto/pagination.dto';
 
 @Injectable()
 export class ApartmentRepository {
@@ -16,8 +17,16 @@ export class ApartmentRepository {
       this.apartmentRepository.create(createApartmentDto);
     return this.apartmentRepository.save(createdApartment);
   }
-  findAll() {
-    return this.apartmentRepository.find();
+  async findAllWithPagination(pagination?: PaginationParams) {
+    const skip = ((pagination.page ?? 1) - 1) * (pagination.limit ?? 10);
+
+    const [apartments, totalRows] = await this.apartmentRepository.findAndCount(
+      {
+        skip,
+        take: pagination.limit ?? 10,
+      },
+    );
+    return { apartments, totalRows };
   }
   async findOne(id: string) {
     const apartmentFound = await this.apartmentRepository.findOneBy({ id });
