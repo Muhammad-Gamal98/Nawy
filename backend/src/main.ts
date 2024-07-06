@@ -13,6 +13,7 @@ async function bootstrap() {
       transformOptions: { enableImplicitConversion: true },
     }),
   );
+  app.enableCors();
   const options = new DocumentBuilder()
     .setTitle('Nawey')
     .setDescription('Apartment Sells')

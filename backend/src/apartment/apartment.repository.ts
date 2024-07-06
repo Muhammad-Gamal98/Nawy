@@ -7,7 +7,6 @@ import { PaginationParams } from './dto/pagination.dto';
 import { IMAGES_URL } from './images/imgesURL';
 
 const imageArray = IMAGES_URL;
-console.log('🚀 ~ imageArray:', imageArray);
 let imageIndex = 0;
 console.log('🚀 ~ imageIndex:', imageIndex);
 
