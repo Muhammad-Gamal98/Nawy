@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { CreateApartmentDto } from './dto/create-apartment.dto';
-import { UpdateApartmentDto } from './dto/update-apartment.dto';
 import { ApartmentRepository } from './apartment.repository';
 import { PaginationParams } from './dto/pagination.dto';
 
@@ -8,6 +7,7 @@ import { PaginationParams } from './dto/pagination.dto';
 export class ApartmentService {
   constructor(private readonly apartmentRepository: ApartmentRepository) {}
   create(createApartmentDto: CreateApartmentDto) {
+    //
     return this.apartmentRepository.create(createApartmentDto);
   }
 
@@ -35,5 +35,8 @@ export class ApartmentService {
 
   remove(id: string) {
     return this.apartmentRepository.remove(id);
+  }
+  removeAll() {
+    return this.apartmentRepository.removeAll();
   }
 }

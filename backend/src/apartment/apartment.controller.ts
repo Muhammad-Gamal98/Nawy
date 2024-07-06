@@ -38,4 +38,8 @@ export class ApartmentController {
   remove(@Param('id') id: string) {
     return this.apartmentService.remove(id);
   }
+  @Delete()
+  removeAll() {
+    return this.apartmentService.removeAll();
+  }
 }

@@ -4,6 +4,12 @@ import { Apartment } from './entities/apartment.entity';
 import { Repository } from 'typeorm';
 import { CreateApartmentDto } from './dto/create-apartment.dto';
 import { PaginationParams } from './dto/pagination.dto';
+import { IMAGES_URL } from './images/imgesURL';
+
+const imageArray = IMAGES_URL;
+console.log('🚀 ~ imageArray:', imageArray);
+let imageIndex = 0;
+console.log('🚀 ~ imageIndex:', imageIndex);
 
 @Injectable()
 export class ApartmentRepository {
@@ -13,8 +19,11 @@ export class ApartmentRepository {
   ) {}
 
   create(createApartmentDto: CreateApartmentDto) {
-    const createdApartment =
-      this.apartmentRepository.create(createApartmentDto);
+    const createdApartment = this.apartmentRepository.create({
+      ...createApartmentDto,
+      image: imageArray[imageIndex % imageArray.length],
+    });
+    imageIndex++;
     return this.apartmentRepository.save(createdApartment);
   }
   async findAllWithPagination(pagination?: PaginationParams) {
@@ -36,5 +45,8 @@ export class ApartmentRepository {
   async remove(id: string) {
     const apartmentFound = await this.findOne(id);
     return this.apartmentRepository.remove(apartmentFound);
+  }
+  async removeAll() {
+    return this.apartmentRepository.delete({});
   }
 }
