@@ -4,7 +4,7 @@ $ docker-compose up --build
 
 ## You can find API Documented throug swagger open API
 
-- 'http://localhost:8080/api'
+- 'http://localhost:8000/api'
 
 ## Open the web page through 'http://localhost:3000'
 
