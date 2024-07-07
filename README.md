@@ -1,11 +1,52 @@
-## Running the app throug docker compose
 
-$ docker-compose up --build
 
-## You can find API Documented throug swagger open API
+This repository contains a web page application and a backend API, both containerized using Docker Compose for easy setup and deployment.
 
-- 'http://localhost:8000/api'
+## Prerequisites
 
-## Open the web page through 'http://localhost:3000'
+Make sure you have Docker and Docker Compose installed on your machine.
 
-## Run Mobile React Native Seprated through navigate to the project folder 'mobile-reactNative' and run this comand npm start , download expo app and scan the QR Code shown in the terminal
+## Getting Started
+
+Follow these steps to get the application up and running:
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone <repository-url>
+   cd <project-folder>
+   
+2. Run the backend API and React Native app through Docker Compose:
+
+    Build and start the containers using Docker Compose:
+
+     ```bash
+    docker-compose up --build
+
+## Access API Documentation (Swagger):
+
+  Once the containers are running, you can access the API documentation through Swagger OpenAPI at:
+
+  http://localhost:8000/api
+## Running the Web Page App 
+  http://localhost:3000
+
+## Running the React Native Mobile App
+  **navigate to the mobile-reactNative folder:**
+    ```bash
+    cd mobile-reactNative
+    npm install   # Install dependencies if not already installed
+    npm start
+
+    This will start the Metro Bundler for your React Native app. Use the Expo Go app on your mobile device (iOS/Android) to scan the QR code displayed in the terminal.
+
+## Directory Structure
+  `backend-NestJS/`: Backend API code.
+  `front-NextJS`: Frontend code
+  `mobile-reactNative/`: React Native mobile app code.
+
+## Additional Notes
+  - Make sure ports 8000 (API) and necessary ports for Frontend (NextJS) 3000 and Mobile (React Native) development are not occupied by other services on your machine.
+  - Adjust Dockerfile and Docker Compose configurations as needed for specific requirements or environments.
+  
+    
