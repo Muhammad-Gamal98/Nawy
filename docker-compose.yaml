@@ -12,10 +12,16 @@ services:
       POSTGRES_PASSWORD: "secret"
       POSTGRES_DB: "nawey"
   backend:
-    build: ./backend
+    build: ./backend-NestJS
     ports:
       - "8080:8000"
     depends_on:
       - db
+  frontend:
+    build: ./frontend-NextJS
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
 volumes:
   data:
