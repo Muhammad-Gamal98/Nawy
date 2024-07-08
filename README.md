@@ -32,6 +32,7 @@ Follow these steps to get the application up and running:
   http://localhost:3000
 
 ## Running the React Native Mobile App
+please change baseURL from utils/api.js to your ip4 to show the result on your connected mobile phone with expo
   **navigate to the mobile-reactNative folder:**
     ```bash
     cd mobile-reactNative
